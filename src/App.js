@@ -145,7 +145,7 @@ class App extends Component {
     if((this.state.route==='todo' || this.state.route==='timeTable' || this.state.route==='project' || this.state.route==='profile') && route==='landing')
     {
       console.log('yo');
-      fetch('http://localhost:3000/signout', {
+      fetch('https://nameless-sands-09614.herokuapp.com/signout', {
         method: 'post',
         headers: {
           'Accept': 'application/json, text/plain, */*',

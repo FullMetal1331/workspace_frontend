@@ -25,12 +25,12 @@ const Landing = () => {
 			<div className='tc dib br3 pa3 ma2 grow card card3 bw2 shadow-5'>
 				<div className='c3imgs'>
 					<div>
-						<img alt="photo" src={`https://robohash.org/saksham?100x100`} className='c3img11'/>
-						<img alt="photo" src={`https://robohash.org/utkarsh2?100x100`} className='c3img12'/>
+						<img alt="photo" src={`https://robohash.org/saksham?100x100`} className='c3img11' style={{width:'100%'}} />
+						<img alt="photo" src={`https://robohash.org/utkarsh2?100x100`} className='c3img12' style={{width:'100%'}} />
 					</div>
 					<div>
-						<img alt="photo" src={`https://robohash.org/siddhart?100x100`} className='c3img21'/>
-						<img alt="photo" src={`https://robohash.org/prakarsh?100x100`} className='c3img22'/>
+						<img alt="photo" src={`https://robohash.org/siddhart?100x100`} className='c3img21' style={{width:'100%'}} />
+						<img alt="photo" src={`https://robohash.org/prakarsh?100x100`} className='c3img22' style={{width:'100%'}} />
 					</div>
 				</div>
 				<div>
