@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { createTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
@@ -8,6 +11,26 @@ import Todo from './components/Todo/Todo';
 import Project from './components/Project/Project';
 import Profile from './components/Profile/Profile';
 import './App.css';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#222831',
+    },
+    secondary: {
+      main: '#EEEEEE',
+    },
+    accent1: {
+      main: '#00ADB5',
+    },
+    accent2: {
+      main:'#393E46'
+    }
+  },
+  typography: {
+    fontFamily: "'Lexend', sans-serif",
+  },
+});
 
 const initialState = {
       isSignedIn: false,
@@ -190,30 +213,32 @@ class App extends Component {
     console.log(this.state.user.phone);
     
     return (
-      <div className="App">
-        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} name={this.state.user.name} />
-        {
-          (route==='signin')?
-            <Signin onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
-            :
-            (route==='register')?
-              <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} name={this.state.user.name} />
+          {
+            (route==='signin')?
+              <Signin onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
               :
-              (route==='landing')?
-                <Landing />
+              (route==='register')?
+                <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
                 :
-                (route==='timeTable')?
-                  <Timetable loadUsertt={this.loadUsertt} subject={this.state.user.subject} ttvals={this.state.user.timeTable} onRouteChange={this.onRouteChange} />
+                (route==='landing')?
+                  <Landing />
                   :
-                  (route==='todo')?
-                  <Todo loadUsertodo={this.loadUsertodo} todovals={this.state.user.todo} onRouteChange={this.onRouteChange} email={this.state.user.email} />
-                  :
-                  (route==='project')?
-                    <Project loadUserproj={this.loadUserproj} projvals={this.state.user.project} onRouteChange={this.onRouteChange} email={this.state.user.email} />
+                  (route==='timeTable')?
+                    <Timetable loadUsertt={this.loadUsertt} subject={this.state.user.subject} ttvals={this.state.user.timeTable} onRouteChange={this.onRouteChange} />
                     :
-                    <Profile changeName={this.changeName} changePhone={this.changePhone} onPhoneAlert={this.onPhoneAlert} onEmailAlert={this.onEmailAlert} onRouteChange={this.onRouteChange} name={this.state.user.name} subject={this.state.user.subject} phone={this.state.user.phone} email_alert={this.state.user.email_alert} phone_alert={this.state.user.phone_alert} />
-        }
-      </div>
+                    (route==='todo')?
+                    <Todo loadUsertodo={this.loadUsertodo} todovals={this.state.user.todo} onRouteChange={this.onRouteChange} email={this.state.user.email} />
+                    :
+                    (route==='project')?
+                      <Project loadUserproj={this.loadUserproj} projvals={this.state.user.project} onRouteChange={this.onRouteChange} email={this.state.user.email} />
+                      :
+                      <Profile changeName={this.changeName} changePhone={this.changePhone} onPhoneAlert={this.onPhoneAlert} onEmailAlert={this.onEmailAlert} onRouteChange={this.onRouteChange} name={this.state.user.name} subject={this.state.user.subject} phone={this.state.user.phone} email_alert={this.state.user.email_alert} phone_alert={this.state.user.phone_alert} />
+          }
+        </div>
+      </ThemeProvider>
     );
   }
 }
