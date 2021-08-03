@@ -5,6 +5,7 @@ import { Fade,Paper,Typography,Zoom } from '@material-ui/core';
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -26,8 +27,11 @@ const useStyles = makeStyles((theme) => ({
     justifyContent:'center',
     alignItems:'center',
 	},
-	container:{
-		
+	columnCenterize:{
+		display:'flex',
+  	flexDirection:'column',
+    justifyContent:'center',
+    alignItems:'center',
 	},
 }));
 
@@ -120,15 +124,17 @@ const Landing = () => {
 				</Fade>
 				<hl id="sec2" style={{width:'10px',height:'10px', backgroundColor:'#393E46',marginBottom:'30%'}} />
 				<Zoom in={section2} style={{ transitionDelay:'500ms'}} >
-					<Paper elevation={3} className={`${classes.paper} ${classes.paperType1}`} >
-						<AccessTimeIcon style={{width:'100%',height:'100%'}} />
+					<Paper elevation={3} className={`${classes.paper} ${classes.paperType1} ${classes.columnCenterize}`} >
+							{/*<SettingsIcon className='cog cogUp cogAntiClock' style={{marginRight:'30%',fontSize:'100px'}} />*/}
+							<SettingsIcon className='cogClock' style={{marginLeft:'40%',fontSize:'300px'}} />
+							<SettingsIcon className='cog cogDown cogAntiClock' style={{marginRight:'30%',fontSize:'200px'}} />
 					</Paper>
 				</Zoom>
 			</div>
 			<div className="Landing-section" style={{backgroundColor:'#eee',flexGrow:1}} >
 				<Zoom in={section3} style={{ transitionDelay:'500ms'}} >
 					<Paper elevation={3} className={`${classes.paper} ${classes.paperType2}`} >
-						<NotificationsActiveIcon style={{width:'100%',height:'100%'}} />
+						<NotificationsActiveIcon  style={{width:'100%',height:'100%'}} />
 					</Paper>
 				</Zoom>
 				<hl id="sec3" style={{width:'10px',height:'10px', backgroundColor:'#eee',marginBottom:'30%'}} />

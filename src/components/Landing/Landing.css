@@ -16,7 +16,57 @@
 	display:flex;
 	justify-content:space-around;
 	align-items:center;
-	
+}
+
+.cogUp{
+	transform:translateY(50px);
+}
+.cogDown{
+	transform:translateY(-50px);
+}
+
+@keyframes clockwise {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes antiClockwise {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+.cogClock{
+	-webkit-animation: clockwise 2s linear infinite;
+	-moz-animation: clockwise 2s linear infinite;
+	-ms-animation: clockwise 2s linear infinite;
+	-o-animation: clockwise 2s linear infinite;
+	animation: clockwise 2s linear infinite;
+}
+.cogAntiClock{
+	-webkit-animation: antiClockwise 2s linear infinite;
+	-moz-animation: antiClockwise 2s linear infinite;
+	-ms-animation: antiClockwise 2s linear infinite;
+	-o-animation: antiClockwise 2s linear infinite;
+	animation: antiClockwise 2s linear infinite;
 }
 
 .cards{
