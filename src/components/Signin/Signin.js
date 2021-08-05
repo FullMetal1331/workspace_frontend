@@ -1,5 +1,25 @@
 import React from 'react';
 import './Signin.css';
+import PropTypes from 'prop-types';
+import { makeStyles,withStyles  } from '@material-ui/core/styles';
+import { Button,Paper,TextField,Typography,Slide } from '@material-ui/core';
+
+const styles = theme => ({
+  fieldCard: {
+    display:'flex',
+    flexDirection:'column',
+    justifyContent:'space-around',
+    alignItems:'center',
+    padding:'5%',
+    height:'60%',
+    backgroundColor:'#222831',
+    borderRadius:'20px'
+  },
+  textfield: {
+  	minWidth:'300px',
+  	backgroundColor:'#fff'
+  }
+});
 
 class Signin extends React.Component {
 	
@@ -48,21 +68,24 @@ class Signin extends React.Component {
 			}
 	
 	render() {
+		const { classes } = this.props;
 		return (
-			<div>
-				<div className="login-page">
-				  <div className="form">
-				  	<p className='tc f2'>Sign In</p>
-				    <form className="login-form" onSubmit={this.routeChange}>
-				      <input onChange={this.onEmailChange} type="email" placeholder="email"/>
-				      <input onChange={this.onPasswordChange} type="password" placeholder="password"/>
-				      <button type='submit'>Sign In</button>
-				    </form>
-				  </div>
-				</div>
+			<div className="Login-Layout" >
+				<Paper elevation={3} className={classes.fieldCard} >
+				  	<Typography variant="h4" style={{fontWeight:'600', color:'#eee'}} >Sign In</Typography>
+				  	<TextField label="Email" variant="filled" className={classes.textfield} />
+				  	<TextField label="Password" variant="filled" className={classes.textfield} />
+				  	<Button variant="contained" color="secondary" disableElevation>
+						  Disable elevation
+						</Button>
+				</Paper>
 			</div>
 		);
 	}
 }
 
-export default Signin;
+Signin.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Signin);

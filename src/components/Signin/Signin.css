@@ -1,10 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-.login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
+.Login-Layout{
+  height:100%;
+  width:100%;
+  
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  
 }
+
+.login-page {
+  
+}
+
+
 .form {
   position: relative;
   z-index: 1;
